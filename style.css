@@ -1,0 +1,262 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #000000, #bed7ff);
+  color: rgb(255, 255, 255);
+}
+
+/* Glass effect */
+section {
+  margin: 40px auto;
+  width: 80%;
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(193, 243, 13, 0.05);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+header {
+  text-align: center;
+  padding: 60px;
+}
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(45deg, #f63b48, #9333ea);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1A1A2E, #162447, #004aa4); /* premium dark gradient */
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(3px); /* subtle frosted/glass effect */
+  z-index: 0;
+}
+
+.hero h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* richer shadow for depth */
+}
+
+.hero p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 0.7rem;
+  background: linear-gradient(135deg, #bae654, #000000); /* rich gradient button */
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  z-index: 1;
+  box-shadow: 0 8px 20px rgb(6, 0, 1);
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #FFD166, #010747);
+  box-shadow: 0 12px 25px rgba(9, 0, 2, 0.7);
+  color: white;
+}
+.shape {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.08); /* slightly more visible */
+  border-radius: 50%;
+  z-index: 0; /* behind the text */
+  animation: float 10s infinite ease-in-out;
+}
+
+.shape:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.shape:nth-child(2) { top: 40%; left: 70%; animation-delay: 3s; }
+.shape:nth-child(3) { top: 70%; left: 30%; animation-delay: 6s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); } /* smooth vertical float */
+}
+/* Form Container */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+/* Input and Textarea Styles */
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem 1.2rem;
+  border: none;
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.05); /* glassy look */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* subtle depth */
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  outline: none;
+  resize: none; /* for textarea */
+}
+
+/* Placeholder color */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Form Container */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+/* Input and Textarea Styles */
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem 1.2rem;
+  border: 2px solid rgba(255, 215, 0, 0.5); /* subtle gold border */
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.05); /* semi-transparent glass effect */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  outline: none;
+  resize: none; /* for textarea */
+}
+
+/* Placeholder color */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 215, 0, 0.6); /* soft gold placeholder */
+}
+
+/* Hover / Focus Effect */
+.contact-form input:hover,
+.contact-form textarea:hover,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #FFD700; /* rich gold on focus */
+  box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4); /* subtle glow */
+  transform: translateY(-2px);
+}
+
+/* Submit Button */
+.contact-form button {
+  padding: 1rem 2rem;
+  border-radius: 0.7rem;
+  background: linear-gradient(135deg, #FFD700, #FFFFFF); /* gold → white gradient */
+  color: #1E1E2F; /* dark text for contrast */
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #FFFFFF, #FFD700); /* reverse gradient on hover */
+  box-shadow: 0 12px 25px rgba(255, 215, 0, 0.7);
+}
+.skills-section {
+  background: #1A1A2E; /* dark premium background */
+  padding: 4rem 2rem;
+  color: white;
+  text-align: center;
+}
+
+.skills-section h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #000000; /* gold title */
+}
+
+.skill {
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.skill p {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  width: 0%; /* initial for animation */
+  background: linear-gradient(135deg, #FFD700, #FFFFFF); /* gold → white gradient */
+  border-radius: 1rem;
+  transition: width 1.5s ease-in-out;
+}
+.skills-section, .hero {
+  position: relative;
+  border: 4px solid transparent;
+  border-radius: 1rem;
+  background-clip: padding-box; /* ensures inner background shows */
+}
+
+.skills-section::before, .hero::before {
+  content: '';
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  z-index: -1;
+  border-radius: 1rem;
+  background: linear-gradient(45deg, #211d09, #FFFFFF, #FFD700, #000000);
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
