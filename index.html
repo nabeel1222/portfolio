@@ -1,104 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Nabeel Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
+        body { background:linear-gradient(135deg,#fdfbfb,#ebedee); color:#333; }
+        .container { max-width:900px; margin:auto; padding:30px 20px; text-align:center; }
+        nav { margin-bottom:30px; }
+        nav button { background:#e9d5ff; border:none; padding:8px 18px; border-radius:20px; cursor:pointer; }
+        h1 { font-size:34px; color:#6d28d9; }
+        .subtitle { font-size:18px; color:#666; margin-bottom:20px; }
+        img { width:140px; border-radius:50%; margin:20px 0; }
+        section { margin-top:50px; text-align:left; }
+        h2 { color:#6d28d9; margin-bottom:10px; }
+        .card { background:#fff; padding:20px; border-radius:15px; margin-top:15px; box-shadow:0 5px 15px rgba(0,0,0,0.05); }
+        input, textarea {
+            width:100%;
+            padding:10px;
+            margin-bottom:10px;
+            border-radius:10px;
+            border:1px solid #ddd;
+        }
+        textarea { resize:none; height:80px; }
+        button.submit-btn {
+            width:100%;
+            padding:10px;
+            background:#c4b5fd;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+        }
+        .msg { margin-top:10px; font-size:14px; }
+    </style>
 </head>
 
-<script>
-  const skillFills = document.querySelectorAll('.skill-bar-fill');
-
-  function animateSkills() {
-    skillFills.forEach(fill => {
-      const value = fill.getAttribute('data-fill');
-      fill.style.width = value;
-    });
-  }
-
-  const skillsSection = document.querySelector('.skills-section');
-  window.addEventListener('scroll', () => {
-    const sectionTop = skillsSection.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
-    if(sectionTop < screenHeight - 100){
-      animateSkills();
-    }
-  });
-</script>
 <body>
 
-<section class="hero">
-    <h1>Welcome to Nabeel’s Premium Portfolio</h1>
-    <p>Creativity that stands out 🚀</p>
-    <a href="#projects" class="btn">See My Work</a>
+<div class="container">
 
-    <!-- Floating shapes -->
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-</section>
+    <nav>
+        <a href="#about"><button>About</button></a>
+        <a href="#projects"><button>Projects</button></a>
+        <a href="#contact"><button>Contact</button></a>
+    </nav>
 
-<section id="skills" class="skills-section">
-  <h2>My Skills</h2>
-  <div class="skill">
-    <p>HTML & CSS</p>
-    <div class="skill-bar">
-      <div class="skill-bar-fill" data-fill="90%"></div>
-    </div>
-  </div>
-  <div class="skill">
-    <p>JavaScript</p>
-    <div class="skill-bar">
-      <div class="skill-bar-fill" data-fill="85%"></div>
-    </div>
-  </div>
-  <div class="skill">
-    <p>Python,MYSQL</p>
-    <div class="skill-bar">
-      <div class="skill-bar-fill" data-fill="80%"></div>
-    </div>
-  </div>
-  <div class="skill">
-    <p>C++</p>
-    <div class="skill-bar">
-      <div class="skill-bar-fill" data-fill="75%"></div>
-    </div>
-  </div>
-</section>
-  <header>
     <h1>Nabeel Burhan</h1>
-    <p>Web Developer | Student </p>
-  </header>
-
-  <section class="about">
-    <h2>About Me</h2>
-    <p><p>I am a student currently learning web development and working on building real-world projects. This portfolio is a part of my learning journey, where I apply my knowledge of HTML, CSS, and backend technologies.</p>.</p>
-  </section>
+    <p class="subtitle">Creative Editor • Aspiring Developer</p>
 
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML,C++,MYSQL</li>
-      <li>CSS,PYTHON</li>
-      <li>JavaScript</li>
-    </ul>
-  </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>I’m a BCA student passionate about technology and creativity. I enjoy building projects and continuously improving my skills.</p>
+        </div>
+    </section>
 
-  <section id="contact">
-  <form class="contact-form" action="http://localhost:3000/submit" method="POST">
-  
-  <input type="text" name="name" placeholder="Your Name" required />
-  
-  <input type="email" name="email" placeholder="Your Email" required />
-  
-  <textarea name="message" placeholder="Your Message"></textarea>
-  
-  <button type="submit">Send Message</button>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="card">
+            <p>Full Stack Portfolio Website with MongoDB and live deployment.</p>
+        </div>
+    </section>
 
-</form>
-  </form>
-</section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="card">
+            <p>Feel absolutely free to reach out — I’d love to hear from you..!</p>
+
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <div id="msg" class="msg"></div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    const msg = document.getElementById("msg");
+
+    try {
+        const res = await fetch("/save", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, email, message })
+        });
+
+        const data = await res.json();
+
+        msg.innerText = "Thanks for your message! I really appreciate it 🙌";
+        msg.style.color = "green";
+
+        document.getElementById("contactForm").reset();
+    } catch (err) {
+        msg.innerText = "Something went wrong. Try again.";
+        msg.style.color = "red";
+    }
+});
+</script>
 
 </body>
 </html>
